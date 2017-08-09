@@ -2,6 +2,10 @@
 import matplotlib as mpl
 mpl.use('Agg')
 import matplotlib.pyplot as plt
+from pyspark import SparkConf,SparkContext
+
+conf = SparkConf().setMaster("local").setAppName("My App")
+sc = SparkContext(conf = conf)
 
 user_data = sc.textFile("/data0/libfile/ml-100k/u.user")
 user_data.first()
